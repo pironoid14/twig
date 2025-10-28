@@ -1,0 +1,16 @@
+{% extends 'base.twig' %}
+{% block content %}
+<div class="card stats">
+  <h3>Dashboard</h3>
+  <div style="display:flex;gap:12px">
+    <div class="card"><div class="count" id="total">0</div><div>Total tickets</div></div>
+    <div class="card"><div class="count" id="open">0</div><div>Open</div></div>
+    <div class="card"><div class="count" id="closed">0</div><div>Resolved</div></div>
+  </div>
+  <div style="margin-top:12px"><button class="btn" id="logout">Logout</button></div>
+</div>
+<script>
+function load(){const t=JSON.parse(localStorage.getItem('ticketapp_tickets')||'[]');document.getElementById('total').innerText=t.length;document.getElementById('open').innerText=t.filter(x=>x.status==='open').length;document.getElementById('closed').innerText=t.filter(x=>x.status==='closed').length}
+document.getElementById('logout').addEventListener('click',()=>{localStorage.removeItem('ticketapp_session');location.href='/';});load();
+</script>
+{% endblock %}

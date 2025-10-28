@@ -1,0 +1,15 @@
+{% extends 'base.twig' %}
+{% block content %}
+<div class="hero">
+  <div class="decor-circle large" aria-hidden></div>
+  <div class="decor-circle small" aria-hidden></div>
+  <h1>Organize. Track. Resolve.</h1>
+  <p>Server-rendered Twig example with client-side JS handling auth and tickets via localStorage.</p>
+  <div class="cta"><a class="btn" href="/auth/login">Login</a><a class="btn" href="/auth/signup" style="background:#fff;color:#123">Get Started</a></div>
+  <img class="wave" src="/assets/wave.svg" alt="wave">
+</div>
+<div class="card-grid">
+  <div class="card"><h3>Features</h3><p>Ticket CRUD, auth, responsive layout.</p></div>
+  <div class="card"><h3>Accessible</h3><p>Semantic HTML and focus states.</p></div>
+</div>
+{% endblock %}

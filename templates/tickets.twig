@@ -1,0 +1,19 @@
+{% extends 'base.twig' %}
+{% block content %}
+<div class="card">
+  <h3>Tickets</h3>
+  <div class="form-row"><input id="title" class="input" placeholder="Title" /></div>
+  <div class="form-row"><textarea id="desc" class="input" placeholder="Description"></textarea></div>
+  <div class="form-row"><select id="status" class="input"><option value="open">open</option><option value="in_progress">in_progress</option><option value="closed">closed</option></select></div>
+  <div><button class="btn" id="create">Create</button></div>
+</div>
+<div id="list" class="ticket-list" style="margin-top:12px"></div>
+<script>
+const VALID=['open','in_progress','closed']
+function loadTickets(){return JSON.parse(localStorage.getItem('ticketapp_tickets')||'[]')}
+function save(t){localStorage.setItem('ticketapp_tickets',JSON.stringify(t))}
+function render(){const list=document.getElementById('list');list.innerHTML='';const tickets=loadTickets();tickets.forEach(t=>{const el=document.createElement('div');el.className='ticket';el.innerHTML=`<div style="font-weight:700">${t.title}</div><div style="font-size:13px;opacity:.7">${t.description||''}</div><div class="status ${t.status}">${t.status}</div><div class="toolbar"><button class="small-btn">Edit</button><button class="small-btn">Delete</button></div>`;list.appendChild(el);});}
+document.getElementById('create').addEventListener('click',()=>{const title=document.getElementById('title').value;const desc=document.getElementById('desc').value;const status=document.getElementById('status').value;if(!title){alert('Title required');return}if(!VALID.includes(status)){alert('Invalid status');return}const t=loadTickets();t.push({id:Date.now(),title,description:desc,status});save(t);render();alert('Created')});
+render();
+</script>
+{% endblock %}

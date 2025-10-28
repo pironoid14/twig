@@ -1,0 +1,28 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>TicketApp — Twig</title>
+  <link rel="stylesheet" href="/twig/style.css">
+</head>
+<body>
+  <div class="container">
+    <header class="header">
+      <div class="brand"><h2>TicketApp (Twig)</h2><div style="opacity:.7">Consistent UI</div></div>
+      <nav class="nav"><a href="/">Home</a><a href="/dashboard">Dashboard</a><a href="/tickets">Tickets</a></nav>
+    </header>
+    {% block content %}{% endblock %}
+    <footer class="footer">© TicketApp — Twig sample</footer>
+  </div>
+  <script>
+    // Client-side auth enforcement and localStorage token usage
+    const SESSION_KEY='ticketapp_session'
+    const ensureAuthFor = ['/dashboard','/tickets']
+    if(ensureAuthFor.includes(location.pathname) && !localStorage.getItem(SESSION_KEY)){
+      alert('Your session has expired — please log in again.');
+      location.href='/auth/login';
+    }
+  </script>
+</body>
+</html>

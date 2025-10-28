@@ -1,0 +1,14 @@
+{% extends 'base.twig' %}
+{% block content %}
+<div class="auth-form card">
+  <h3>Login</h3>
+  <form id="authForm">
+    <div class="form-row"><label>Email<input id="email" class="input" value="test@example.com" /></label></div>
+    <div class="form-row"><label>Password<input id="password" type="password" class="input" value="password" /></label></div>
+    <div class="form-row"><button class="btn" type="submit">Login</button></div>
+  </form>
+</div>
+<script>
+document.getElementById('authForm').addEventListener('submit',function(e){e.preventDefault();const email=document.getElementById('email').value;const pw=document.getElementById('password').value; if(!email||!pw||pw.length<6){alert('Invalid credentials');return;}localStorage.setItem('ticketapp_session',JSON.stringify({email}));location.href='/dashboard';});
+</script>
+{% endblock %}

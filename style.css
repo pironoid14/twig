@@ -1,0 +1,163 @@
+/* Keep the same basic styling as other implementations */
+* {
+  box-sizing: border-box;
+  font-family: Inter, system-ui, Arial, Helvetica, sans-serif;
+}
+:root {
+  --max: 1440px;
+  --bg: #f7fbff;
+  --card: #fff;
+  --accent: #6c9eeb;
+  --green: #2ecc71;
+  --amber: #f39c12;
+  --gray: #95a5a6;
+}
+body {
+  margin: 0;
+  background: var(--bg);
+  color: #0b2545;
+}
+.container {
+  max-width: var(--max);
+  margin: 0 auto;
+  padding: 24px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+}
+.hero {
+  position: relative;
+  overflow: hidden;
+  border-radius: 12px;
+  background: linear-gradient(180deg, #e9f0ff 0%, #ffffff 60%);
+  padding: 48px;
+}
+.hero .wave {
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  height: 120px;
+}
+.decor-circle {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0.9;
+}
+.decor-circle.small {
+  width: 80px;
+  height: 80px;
+  right: 32px;
+  top: -40px;
+  background: #f6c667;
+}
+.decor-circle.large {
+  width: 160px;
+  height: 160px;
+  left: -60px;
+  top: 20px;
+  background: #6c9eeb;
+}
+.cta {
+  margin-top: 16px;
+}
+.btn {
+  background: var(--accent);
+  color: #fff;
+  padding: 10px 16px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 16px;
+  margin-top: 24px;
+}
+.card {
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(11, 37, 69, 0.06);
+}
+.footer {
+  padding: 24px;
+  text-align: center;
+  color: #234;
+  opacity: 0.8;
+}
+.auth-form {
+  max-width: 420px;
+  margin: 24px auto;
+  background: var(--card);
+  padding: 16px;
+  border-radius: 12px;
+  box-shadow: 0 6px 18px rgba(0, 0, 0, 0.06);
+}
+.input {
+  width: 100%;
+  padding: 10px;
+  border: 1px solid #e3e8ef;
+  border-radius: 8px;
+}
+.input:focus {
+  outline: 3px solid rgba(108, 158, 235, 0.18);
+}
+.field-error {
+  color: #c53030;
+  font-size: 13px;
+  margin-top: 6px;
+}
+.ticket-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 12px;
+  margin-top: 12px;
+}
+.ticket {
+  padding: 12px;
+  border-radius: 10px;
+  background: var(--card);
+  box-shadow: 0 3px 12px rgba(2, 6, 23, 0.06);
+  position: relative;
+}
+.status {
+  position: absolute;
+  right: 12px;
+  top: 12px;
+  padding: 6px 10px;
+  border-radius: 999px;
+  color: #fff;
+  font-weight: 600;
+  font-size: 12px;
+}
+.status.open {
+  background: var(--green);
+}
+.status.in_progress {
+  background: var(--amber);
+}
+.status.closed {
+  background: var(--gray);
+}
+.toast {
+  position: fixed;
+  right: 20px;
+  bottom: 20px;
+  background: #111;
+  color: #fff;
+  padding: 12px 16px;
+  border-radius: 8px;
+}
+@media (max-width: 720px) {
+  .hero {
+    padding: 24px;
+  }
+  .decor-circle.large {
+    display: none;
+  }
+}
