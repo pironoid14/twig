@@ -4,7 +4,7 @@ class Router {
     private $routes = [];
     private $twig;
 
-    public function __construct(\Twig\Environment $twig) {
+    public function __construct($twig) {
         $this->twig = $twig;
     }
 
